@@ -37,6 +37,11 @@ public:
         return std::tie(lhs.tiles, lhs.zoomRange, lhs.attribution, lhs.scheme, lhs.bounds)
             == std::tie(rhs.tiles, rhs.zoomRange, rhs.attribution, rhs.scheme, rhs.bounds);
     }
+
+    friend bool operator!=(const Tileset& lhs, const Tileset& rhs) {
+        return std::tie(lhs.tiles, lhs.zoomRange, lhs.attribution, lhs.scheme)
+            != std::tie(rhs.tiles, rhs.zoomRange, rhs.attribution, rhs.scheme);
+    }
 };
 
 } // namespace mbgl
