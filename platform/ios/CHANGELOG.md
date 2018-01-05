@@ -19,6 +19,7 @@ Mapbox welcomes participation and contributions from everyone. Please read [CONT
 
 ### Other changes
 
+* Added haptic feedback that occurs when the user rotates the map to due north, configurable via `MGLMapView.hapticFeedbackEnabled`. ([#10847](https://github.com/mapbox/mapbox-gl-native/pull/10847))
 * Long-pressing the attribution button causes the SDK’s version number to be displayed in the action sheet that appears. ([#10650](https://github.com/mapbox/mapbox-gl-native/pull/10650))
 
 ## 3.7.2 - December 21, 2017
