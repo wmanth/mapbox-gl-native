@@ -5,11 +5,9 @@ package com.mapbox.mapboxsdk.style.layers;
 import android.annotation.SuppressLint;
 import android.support.annotation.ColorInt;
 
+import com.mapbox.mapboxsdk.style.functions.Function;
 import com.mapbox.mapboxsdk.style.functions.CameraFunction;
 import com.mapbox.mapboxsdk.style.expressions.Expression;
-import com.mapbox.mapboxsdk.style.functions.Function;
-
-import java.util.Locale;
 
 /**
  * Constructs paint/layout properties for Layers
@@ -2889,11 +2887,11 @@ public class PropertyFactory {
   /**
    * Font stack to use for displaying text.
    *
-   * @param <T> the function input type
-   * @param function a wrapper function for String[]
+   * @param <Z> the zoom parameter type
+   * @param function a wrapper {@link CameraFunction} for String[]
    * @return property wrapper around a String[] function
    */
-  public static <T> PropertyValue<Function<T, String[]>> textFont(Function<T, String[]> function) {
+  public static <Z extends Number> PropertyValue<CameraFunction<Z, String[]>> textFont(CameraFunction<Z, String[]> function) {
     return new LayoutPropertyValue<>("text-font", function);
   }
 
@@ -3365,6 +3363,7 @@ public class PropertyFactory {
     return new LayoutPropertyValue<>("text-optional", value);
   }
 
+
   /**
    * If true, icons will display without their corresponding text when the text collides with other symbols and the icon does not.
    *
@@ -3376,9 +3375,9 @@ public class PropertyFactory {
     return new LayoutPropertyValue<>("text-optional", function);
   }
 
+  @SuppressLint("DefaultLocale")
   public static String colorToRgbaString(@ColorInt int value) {
-    return String.format(Locale.US,"rgba(%d, %d, %d, %d)",
-      (value >> 16) & 0xFF, (value >> 8) & 0xFF, value & 0xFF, (value >> 24) & 0xFF);
+    return String.format("rgba(%d, %d, %d, %d)", (value >> 16) & 0xFF, (value >> 8) & 0xFF, value & 0xFF, (value >> 24) & 0xFF);
   }
 
 }

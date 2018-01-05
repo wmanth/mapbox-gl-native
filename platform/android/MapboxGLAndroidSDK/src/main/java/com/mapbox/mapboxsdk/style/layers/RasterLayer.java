@@ -2,8 +2,13 @@
 
 package com.mapbox.mapboxsdk.style.layers;
 
+import android.support.annotation.ColorInt;
 import android.support.annotation.NonNull;
 import android.support.annotation.UiThread;
+
+import static com.mapbox.mapboxsdk.utils.ColorUtils.rgbaToColor;
+
+import com.mapbox.mapboxsdk.style.layers.TransitionOptions;
 
 /**
  * Raster map textures such as satellite imagery.

@@ -281,7 +281,7 @@ typedef NS_ENUM(NSUInteger, MGLTextTransform) {
 };
 
 /**
- Controls the translation reference point.
+ Controls the frame of reference for `iconTranslate`.
 
  Values of this type are used in the `MGLSymbolStyleLayer.iconTranslationAnchor`
  property.
@@ -298,7 +298,7 @@ typedef NS_ENUM(NSUInteger, MGLIconTranslationAnchor) {
 };
 
 /**
- Controls the translation reference point.
+ Controls the frame of reference for `textTranslate`.
 
  Values of this type are used in the `MGLSymbolStyleLayer.textTranslationAnchor`
  property.
@@ -444,7 +444,9 @@ MGL_EXPORT
 
 /**
  Name of image in sprite to use for drawing an image background. A string with
- {tokens} replaced, referencing the data property to pull from.
+ `{tokens}` replaced, referencing the data property to pull from. (`{token}`
+ replacement is only supported for literal `iconImage` values; not for property
+ functions.)
  
  This attribute corresponds to the <a
  href="https://www.mapbox.com/mapbox-gl-style-spec/#layout-symbol-icon-image"><code>icon-image</code></a>
@@ -475,9 +477,13 @@ MGL_EXPORT
 /**
  Offset distance of icon from its anchor.
  
+ This property is measured in points multiplied by the value of "icon-size"s.
+ 
  The default value of this property is an `MGLStyleValue` object containing an
- `NSValue` object containing a `CGVector` struct set to 0 rightward and 0
- downward. Set this property to `nil` to reset it to the default value.
+ `NSValue` object containing a `CGVector` struct set to 0 points multiplied by
+ the value of "icon-size"s rightward and 0 points multiplied by the value of
+ "icon-size"s downward. Set this property to `nil` to reset it to the default
+ value.
  
  This property is only applied to the style if `iconImageName` is non-`nil`.
  Otherwise, it is ignored.
@@ -503,9 +509,13 @@ MGL_EXPORT
 /**
  Offset distance of icon from its anchor.
  
+ This property is measured in points multiplied by the value of "icon-size"s.
+ 
  The default value of this property is an `MGLStyleValue` object containing an
- `NSValue` object containing a `CGVector` struct set to 0 rightward and 0
- upward. Set this property to `nil` to reset it to the default value.
+ `NSValue` object containing a `CGVector` struct set to 0 points multiplied by
+ the value of "icon-size"s rightward and 0 points multiplied by the value of
+ "icon-size"s upward. Set this property to `nil` to reset it to the default
+ value.
  
  This property is only applied to the style if `iconImageName` is non-`nil`.
  Otherwise, it is ignored.
@@ -936,8 +946,8 @@ MGL_EXPORT
 
 /**
  Value to use for a text label. Feature properties are specified using tokens
- like {field_name}.  (Token replacement is only supported for literal
- `textField` values--not for property functions.)
+ like `{field_name}`. (`{token}` replacement is only supported for literal
+ `textField` values; not for property functions.)
  
  The default value of this property is an `MGLStyleValue` object containing the
  empty string. Set this property to `nil` to reset it to the default value.
@@ -1716,7 +1726,7 @@ MGL_EXPORT
 @property (nonatomic, null_resettable) MGLStyleValue<NSValue *> *iconTranslate __attribute__((unavailable("Use iconTranslation instead.")));
 
 /**
- Controls the translation reference point.
+ Controls the frame of reference for `iconTranslate`.
  
  The default value of this property is an `MGLStyleValue` object containing an
  `NSValue` object containing `MGLIconTranslationAnchorMap`. Set this property to
@@ -2041,7 +2051,7 @@ MGL_EXPORT
 @property (nonatomic, null_resettable) MGLStyleValue<NSValue *> *textTranslate __attribute__((unavailable("Use textTranslation instead.")));
 
 /**
- Controls the translation reference point.
+ Controls the frame of reference for `textTranslate`.
  
  The default value of this property is an `MGLStyleValue` object containing an
  `NSValue` object containing `MGLTextTranslationAnchorMap`. Set this property to

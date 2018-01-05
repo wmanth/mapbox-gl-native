@@ -8,7 +8,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- Controls the translation reference point.
+ Controls the frame of reference for `fillTranslate`.
 
  Values of this type are used in the `MGLFillStyleLayer.fillTranslationAnchor`
  property.
@@ -322,7 +322,7 @@ MGL_EXPORT
 @property (nonatomic, null_resettable) MGLStyleValue<NSValue *> *fillTranslate __attribute__((unavailable("Use fillTranslation instead.")));
 
 /**
- Controls the translation reference point.
+ Controls the frame of reference for `fillTranslate`.
  
  The default value of this property is an `MGLStyleValue` object containing an
  `NSValue` object containing `MGLFillTranslationAnchorMap`. Set this property to
