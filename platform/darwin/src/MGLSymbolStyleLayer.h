@@ -68,14 +68,15 @@ typedef NS_ENUM(NSUInteger, MGLIconPitchAlignment) {
      */
     MGLIconPitchAlignmentViewport,
     /**
-     Automatically matches the value of `iconRotationAlignment`.
+     Automatically matches the value of
+     `MGLSymbolStyleLayer.iconRotationAlignment`.
      */
     MGLIconPitchAlignmentAuto,
 };
 
 /**
- In combination with `symbolPlacement`, determines the rotation behavior of
- icons.
+ In combination with `MGLSymbolStyleLayer.symbolPlacement`, determines the
+ rotation behavior of icons.
 
  Values of this type are used in the `MGLSymbolStyleLayer.iconRotationAlignment`
  property.
@@ -89,7 +90,7 @@ typedef NS_ENUM(NSUInteger, MGLIconRotationAlignment) {
     MGLIconRotationAlignmentMap,
     /**
      Produces icons whose x-axes are aligned with the x-axis of the viewport,
-     regardless of the value of `symbolPlacement`.
+     regardless of the value of `MGLSymbolStyleLayer.symbolPlacement`.
      */
     MGLIconRotationAlignmentViewport,
     /**
@@ -226,14 +227,15 @@ typedef NS_ENUM(NSUInteger, MGLTextPitchAlignment) {
      */
     MGLTextPitchAlignmentViewport,
     /**
-     Automatically matches the value of `textRotationAlignment`.
+     Automatically matches the value of
+     `MGLSymbolStyleLayer.textRotationAlignment`.
      */
     MGLTextPitchAlignmentAuto,
 };
 
 /**
- In combination with `symbolPlacement`, determines the rotation behavior of the
- individual glyphs forming the text.
+ In combination with `MGLSymbolStyleLayer.symbolPlacement`, determines the
+ rotation behavior of the individual glyphs forming the text.
 
  Values of this type are used in the `MGLSymbolStyleLayer.textRotationAlignment`
  property.
@@ -247,7 +249,7 @@ typedef NS_ENUM(NSUInteger, MGLTextRotationAlignment) {
     MGLTextRotationAlignmentMap,
     /**
      Produces glyphs whose x-axes are aligned with the x-axis of the viewport,
-     regardless of the value of `symbolPlacement`.
+     regardless of the value of `MGLSymbolStyleLayer.symbolPlacement`.
      */
     MGLTextRotationAlignmentViewport,
     /**
@@ -281,7 +283,7 @@ typedef NS_ENUM(NSUInteger, MGLTextTransform) {
 };
 
 /**
- Controls the frame of reference for `iconTranslation`.
+ Controls the frame of reference for `MGLSymbolStyleLayer.iconTranslation`.
 
  Values of this type are used in the `MGLSymbolStyleLayer.iconTranslationAnchor`
  property.
@@ -298,7 +300,7 @@ typedef NS_ENUM(NSUInteger, MGLIconTranslationAnchor) {
 };
 
 /**
- Controls the frame of reference for `textTranslation`.
+ Controls the frame of reference for `MGLSymbolStyleLayer.textTranslation`.
 
  Values of this type are used in the `MGLSymbolStyleLayer.textTranslationAnchor`
  property.

@@ -58,7 +58,7 @@ typedef NS_ENUM(NSUInteger, MGLLineJoin) {
 };
 
 /**
- Controls the frame of reference for `lineTranslation`.
+ Controls the frame of reference for `MGLLineStyleLayer.lineTranslation`.
 
  Values of this type are used in the `MGLLineStyleLayer.lineTranslationAnchor`
  property.

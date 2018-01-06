@@ -8,7 +8,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- Controls the frame of reference for `fillTranslation`.
+ Controls the frame of reference for `MGLFillStyleLayer.fillTranslation`.
 
  Values of this type are used in the `MGLFillStyleLayer.fillTranslationAnchor`
  property.

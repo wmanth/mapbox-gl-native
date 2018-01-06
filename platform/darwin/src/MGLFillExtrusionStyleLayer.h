@@ -8,7 +8,8 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- Controls the frame of reference for `fillExtrusionTranslation`.
+ Controls the frame of reference for
+ `MGLFillExtrusionStyleLayer.fillExtrusionTranslation`.
 
  Values of this type are used in the `MGLFillExtrusionStyleLayer.fillExtrusionTranslationAnchor`
  property.

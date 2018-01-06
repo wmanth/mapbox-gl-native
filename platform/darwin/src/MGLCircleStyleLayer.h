@@ -42,7 +42,7 @@ typedef NS_ENUM(NSUInteger, MGLCircleScaleAlignment) {
 };
 
 /**
- Controls the frame of reference for `circleTranslation`.
+ Controls the frame of reference for `MGLCircleStyleLayer.circleTranslation`.
 
  Values of this type are used in the `MGLCircleStyleLayer.circleTranslationAnchor`
  property.
