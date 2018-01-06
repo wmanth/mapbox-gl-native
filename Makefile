@@ -222,6 +222,10 @@ iproj: $(IOS_PROJ_PATH)
 ios-test: $(IOS_PROJ_PATH)
 	set -o pipefail && $(IOS_XCODEBUILD_SIM) -scheme 'CI' test $(XCPRETTY)
 
+.PHONY: ios-integration-test
+ios-integration-test: $(IOS_PROJ_PATH)
+	set -o pipefail && $(IOS_XCODEBUILD_SIM) -scheme 'Integration Test Harness' test $(XCPRETTY)
+
 .PHONY: ios-sanitize-address
 ios-sanitize-address: $(IOS_PROJ_PATH)
 	set -o pipefail && $(IOS_XCODEBUILD_SIM) -scheme 'CI' -enableAddressSanitizer YES test $(XCPRETTY)

@@ -114,6 +114,10 @@ step-library:
       run:
         name: Build ios-test
         command: make ios-test
+  - &build-ios-integration-test
+      run:
+        name: Build ios-integration-test
+        command: make ios-integration-test
   - &build-macos-test
       run:
         name: Build and run macOS tests
@@ -665,6 +669,7 @@ jobs:
       - *restore-cache
       - *reset-ccache-stats
       - *build-ios-test
+      - *build-ios-integration-test
       - *check-public-symbols
       - *show-ccache-stats
       - *save-cache
