@@ -479,13 +479,11 @@ MGL_EXPORT
 /**
  Offset distance of icon from its anchor.
  
- This property is measured in points multiplied by the value of "icon-size"s.
+ This property is measured in points multiplied by the value of "icon-size".
  
  The default value of this property is an `MGLStyleValue` object containing an
- `NSValue` object containing a `CGVector` struct set to 0 points multiplied by
- the value of "icon-size"s rightward and 0 points multiplied by the value of
- "icon-size"s downward. Set this property to `nil` to reset it to the default
- value.
+ `NSValue` object containing a `CGVector` struct set to 0 rightward and 0
+ downward. Set this property to `nil` to reset it to the default value.
  
  This property is only applied to the style if `iconImageName` is non-`nil`.
  Otherwise, it is ignored.
@@ -511,13 +509,11 @@ MGL_EXPORT
 /**
  Offset distance of icon from its anchor.
  
- This property is measured in points multiplied by the value of "icon-size"s.
+ This property is measured in points multiplied by the value of "icon-size".
  
  The default value of this property is an `MGLStyleValue` object containing an
- `NSValue` object containing a `CGVector` struct set to 0 points multiplied by
- the value of "icon-size"s rightward and 0 points multiplied by the value of
- "icon-size"s upward. Set this property to `nil` to reset it to the default
- value.
+ `NSValue` object containing a `CGVector` struct set to 0 rightward and 0
+ upward. Set this property to `nil` to reset it to the default value.
  
  This property is only applied to the style if `iconImageName` is non-`nil`.
  Otherwise, it is ignored.

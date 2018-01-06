@@ -30,7 +30,11 @@ _.forOwn(cocoaConventions, function (properties, kind) {
         // Update cross-references to this property in other properties'
         // documentation and requirements.
         let renameCrossReferences = function (property, name) {
-            property.doc = property.doc.replace(new RegExp('`' + oldName + '`', 'g'), '`' + newName + '`');
+            let oldNameRe = new RegExp('`' + oldName + '`', 'g');
+            property.doc = property.doc.replace(oldNameRe, '`' + newName + '`');
+            if (property.units) {
+                property.units = property.units.replace(oldNameRe, '`' + newName + '`');
+            }
             let requires = property.requires || [];
             for (let i = 0; i < requires.length; i++) {
                 if (requires[i] === oldName) {
@@ -265,10 +269,7 @@ global.propertyDoc = function (propertyName, property, layerType, kind) {
     });
     // Format references to units.
     if ('units' in property) {
-        if (!property.units.match(/s$/)) {
-            property.units += 's';
-        }
-        doc += `\n\nThis property is measured in ${property.units}.`;
+        doc += `\n\nThis property is measured in ${describeUnit(property.units, property, layerType)}.`;
     }
     doc = doc.replace(/(p)ixel/gi, '$1oint').replace(/(\d)px\b/g, '$1pt');
     if (kind !== 'enum') {
@@ -344,6 +345,13 @@ global.parseColor = function (str) {
     };
 };
 
+global.describeUnit = function (unit, property, layerType) {
+    if (!unit.match(/s$|s /)) {
+        unit += 's';
+    }
+    return unit.replace(/pixel/, 'point');
+};
+
 global.describeValue = function (value, property, layerType) {
     switch (property.type) {
         case 'boolean':
@@ -389,9 +397,13 @@ global.describeValue = function (value, property, layerType) {
             }
             return 'a `UIColor`' + ` object whose RGB value is ${color.r}, ${color.g}, ${color.b} and whose alpha value is ${color.a}`;
         case 'array':
-            let units = property.units || '';
+            let units = property.units;
             if (units) {
-                units = ` ${units}`.replace(/pixel/, 'point');
+                units = ` ${describeUnit(units, property, layerType)}`;
+                // Omit unwieldy phrases that occur as units.
+                if (units.split(' ').length > 2) {
+                    units = '';
+                }
             }
             switch (arrayType(property)) {
                 case 'padding':
