@@ -58,7 +58,7 @@ typedef NS_ENUM(NSUInteger, MGLLineJoin) {
 };
 
 /**
- Controls the frame of reference for `lineTranslate`.
+ Controls the frame of reference for `lineTranslation`.
 
  Values of this type are used in the `MGLLineStyleLayer.lineTranslationAnchor`
  property.
@@ -515,7 +515,7 @@ MGL_EXPORT
 @property (nonatomic, null_resettable) MGLStyleValue<NSValue *> *lineTranslate __attribute__((unavailable("Use lineTranslation instead.")));
 
 /**
- Controls the frame of reference for `lineTranslate`.
+ Controls the frame of reference for `lineTranslation`.
  
  The default value of this property is an `MGLStyleValue` object containing an
  `NSValue` object containing `MGLLineTranslationAnchorMap`. Set this property to

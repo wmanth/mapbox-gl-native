@@ -281,7 +281,7 @@ typedef NS_ENUM(NSUInteger, MGLTextTransform) {
 };
 
 /**
- Controls the frame of reference for `iconTranslate`.
+ Controls the frame of reference for `iconTranslation`.
 
  Values of this type are used in the `MGLSymbolStyleLayer.iconTranslationAnchor`
  property.
@@ -298,7 +298,7 @@ typedef NS_ENUM(NSUInteger, MGLIconTranslationAnchor) {
 };
 
 /**
- Controls the frame of reference for `textTranslate`.
+ Controls the frame of reference for `textTranslation`.
 
  Values of this type are used in the `MGLSymbolStyleLayer.textTranslationAnchor`
  property.
@@ -445,8 +445,8 @@ MGL_EXPORT
 /**
  Name of image in sprite to use for drawing an image background. A string with
  `{tokens}` replaced, referencing the data property to pull from. (`{token}`
- replacement is only supported for literal `iconImage` values; not for property
- functions.)
+ replacement is only supported for literal `iconImageName` values; not for
+ property functions.)
  
  This attribute corresponds to the <a
  href="https://www.mapbox.com/mapbox-gl-style-spec/#layout-symbol-icon-image"><code>icon-image</code></a>
@@ -656,8 +656,8 @@ MGL_EXPORT
 
 /**
  Scales the original size of the icon by the provided factor. The new point size
- of the image will be the original point size multiplied by `iconSize`. 1 is the
- original size; 3 triples the size of the image.
+ of the image will be the original point size multiplied by `iconScale`. 1 is
+ the original size; 3 triples the size of the image.
  
  This property is measured in factor of the original icon sizes.
  
@@ -947,7 +947,7 @@ MGL_EXPORT
 /**
  Value to use for a text label. Feature properties are specified using tokens
  like `{field_name}`. (`{token}` replacement is only supported for literal
- `textField` values; not for property functions.)
+ `text` values; not for property functions.)
  
  The default value of this property is an `MGLStyleValue` object containing the
  empty string. Set this property to `nil` to reset it to the default value.
@@ -1736,7 +1736,7 @@ MGL_EXPORT
 @property (nonatomic, null_resettable) MGLStyleValue<NSValue *> *iconTranslate __attribute__((unavailable("Use iconTranslation instead.")));
 
 /**
- Controls the frame of reference for `iconTranslate`.
+ Controls the frame of reference for `iconTranslation`.
  
  The default value of this property is an `MGLStyleValue` object containing an
  `NSValue` object containing `MGLIconTranslationAnchorMap`. Set this property to
@@ -2061,7 +2061,7 @@ MGL_EXPORT
 @property (nonatomic, null_resettable) MGLStyleValue<NSValue *> *textTranslate __attribute__((unavailable("Use textTranslation instead.")));
 
 /**
- Controls the frame of reference for `textTranslate`.
+ Controls the frame of reference for `textTranslation`.
  
  The default value of this property is an `MGLStyleValue` object containing an
  `NSValue` object containing `MGLTextTranslationAnchorMap`. Set this property to
